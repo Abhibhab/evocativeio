@@ -1,0 +1,54 @@
+<% layout('layouts/boilerplate')%>
+
+<div
+  class="mt-3"
+  data-aos="zoom-in"
+  id="map"
+  style="width: 100%; height: 500px"
+></div>
+
+<h1 class="text-center m-3 my-5">GALLERY</h1>
+
+<div class="d-flex flex-wrap text-center justify-content-md-evenly">
+  <% for (let campground of campgrounds){%>
+  <div
+    class="card col-md-5 col-sm-12 m-2 mb-3 b"
+    data-aos="zoom-in-up"
+    style="background-color: #1e856f"
+  >
+    <% if(campground.images.length){ %>
+    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+      <img
+        class="img-thumbnail"
+        src="<%=campground.images[0].url %>"
+        class="img-fluid"
+        style="width: 100%; height: 300px"
+      />
+      <% }else{ %>
+      <img class="img-fluid img-thumbnail mx-auto" src="" />
+      <% } %>
+      <a href="/campgrounds/<%=campground._id %>">
+        <div
+          class="mask"
+          style="background-color: rgba(251, 251, 251, 0.15)"
+        ></div>
+      </a>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%=campground.title %></h5>
+      <p>
+        <small><%=campground.location%></small>
+      </p>
+      <a href="/campgrounds/<%=campground._id %>" class="btn btn-primary"
+        >SHOW MORE</a
+      >
+    </div>
+  </div>
+  <% }%>
+</div>
+
+<script>
+  const mapToken='<%-process.env.MAPBOX_TOKEN%>';
+  const campgrounds = { features: <%- JSON.stringify(campgrounds) %>}
+</script>
+<script src="/javascripts/clustesMap.js"></script>
