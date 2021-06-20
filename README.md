@@ -17,15 +17,15 @@ One cannot edit or delete posts and comments created by other users
 
 Admin can manage all posts and comments
 
-Manage campground posts with basic functionalities:
+Manage images posts with basic functionalities:
 
 Create, edit and delete posts and comments
 
-Upload campground photos
+Upload  photos
 
-Display campground location on Google Maps
+Display image location on Google Maps
 
-Search existing campgrounds
+Search existing images
 
 Manage user account with basic functionalities:
 
